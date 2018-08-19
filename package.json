@@ -1,0 +1,19 @@
+{
+  "name": "javascript-starter-kit",
+  "version": "1.0.0",
+  "description": "This is starter kit for the frontend developers who work in Javascript or any other frontend framework so that they don't have to start from scratch every time they start a new project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subinv/Javascript-starter-kit.git"
+  },
+  "author": "Subin V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subinv/Javascript-starter-kit/issues"
+  },
+  "homepage": "https://github.com/subinv/Javascript-starter-kit#readme"
+}
