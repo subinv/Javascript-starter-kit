@@ -11,9 +11,15 @@
     "url": "git+https://github.com/subinv/Javascript-starter-kit.git"
   },
   "author": "Subin V",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/subinv/Javascript-starter-kit/issues"
   },
-  "homepage": "https://github.com/subinv/Javascript-starter-kit#readme"
+  "homepage": "https://github.com/subinv/Javascript-starter-kit#readme",
+  "dependencies": {
+    "whatwg-fetch": "1.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
 }
