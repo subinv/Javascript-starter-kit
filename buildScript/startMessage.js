@@ -1,3 +1,3 @@
-var chalk = require('chalk');
+import { green } from 'chalk';
 
-console.log(chalk.green("Connection Started!!!"))
+console.log(green("Connection Started!!!"))
