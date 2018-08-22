@@ -11,6 +11,6 @@ app.listen(port, function (err) {
   if (err) {
     console.log("Error is ", err);
   } else {
-    console.log('Connection opened on port 3000');
+    console.log('Connection opened on port ' + port);
   }
 })
