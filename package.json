@@ -4,7 +4,7 @@
   "description": "This is starter kit for the frontend developers who work in Javascript or any other frontend framework so that they don't have to start from scratch every time they start a new project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter progress buildScript/testSetup.js \"src/**/*.test.js\"",
     "prestart": "babel-node buildScript/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node buildScript/srcServer.js",
