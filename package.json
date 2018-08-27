@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "babel-node buildScript/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node buildScript/srcServer.js",
+    "lint": "esw webpack.config.* src buildScript --color",
+    "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000 --subdomain subin",
     "share": "npm-run-all --parallel open:src localtunnel"
