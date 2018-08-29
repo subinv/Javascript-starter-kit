@@ -1,7 +1,6 @@
 import { expect } from "chai";
-import jsdom from "jsdom";
-import  fs  from "fs";
-import { doesNotReject } from "assert";
+import { JSDOM } from "jsdom";
+import fs from "fs";
 
 describe(`First Test`, () => {
   it('Should pass', () => {
@@ -9,14 +8,19 @@ describe(`First Test`, () => {
   })
 })
 
-describe(`index.html`,()=>{
-  it(`should say hello`,()=>{
-    const index = fs.readFileSync('./src/index.html','utf-8');
-    jsdom.env(index, function(err,window){
-      const h1 = window.document.querySelector('h1');
-      expect(h1.innerHTMl).to.equal('Hello World');
-      done();
-      window.close();// closing window to free up spaces
-    });
+describe(`index.html`, () => {
+  it(`should say hello`, (done) => {
+    const index = fs.readFileSync('./src/index.html', 'utf-8');
+    // jsdom.env(index, function (err, window) {
+    //   const h1 = window.document.querySelector('h1');
+    //   expect(h1.innerHTMl).to.equal('Hello World');
+    //   done();
+    //   window.close(); // closing window to free up spaces
+    // });
+    var dom = new JSDOM(index);
+    const h1 = dom.window.document.querySelector('h1');
+    expect(h1.innerHTML).to.equal('Hello World');
+    done();//For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves.
+    dom.window.close();
   })
 })
