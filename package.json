@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter progress buildScript/testSetup.js \"src/**/*.test.js\"",
-    "test:watch":"npm run test -- --watch",
+    "test:watch": "npm run test -- --watch",
     "prestart": "babel-node buildScript/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
     "open:src": "babel-node buildScript/srcServer.js",
