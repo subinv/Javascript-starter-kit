@@ -9,7 +9,7 @@ describe(`First Test`, () => {
 })
 
 describe(`index.html`, () => {
-  it(`should say hello`, (done) => {
+  it(`should should have h1 thats says users`, (done) => {
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     // jsdom.env(index, function (err, window) {
     //   const h1 = window.document.querySelector('h1');
@@ -19,7 +19,7 @@ describe(`index.html`, () => {
     // });
     var dom = new JSDOM(index);
     const h1 = dom.window.document.querySelector('h1');
-    expect(h1.innerHTML).to.equal('Hello World');
+    expect(h1.innerHTML).to.equal('Users');
     done();//For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves.
     dom.window.close();
   })
