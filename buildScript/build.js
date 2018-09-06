@@ -17,11 +17,11 @@ webpack(webpackConfig).run((err, stats) => {
 //errors and status is printed to console
 const jsonStats = stats.toJson();
 
-if(jsonStats.hasError){
+if (jsonStats.hasError) {
   return jsonStats.errors.map(err => console.log(chalk.red(err)));
 }
 
-if(jsonStats.hasWarings){
+if (jsonStats.hasWarings) {
   console.log(chalk.yellow('Webpack generated folllowing warnings: '));
   jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)));
 }
