@@ -16,5 +16,5 @@ getUsers().then(result => {
     <td>${user.email}</td>
     </tr>`
   });
-  global.decodeURIComponent.querySelector('#users').innerHTML = userBody;
+  global.document.querySelector('#users').innerHTML = userBody;
 });
