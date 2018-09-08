@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
+//import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   devtool: 'source-map',
@@ -14,7 +16,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
   optimization: {
     minimizer: [
@@ -36,6 +38,10 @@ export default {
       debug: true,
       noInfo: false,
     }),
+    //Generate an external css file with a hash in the filename
+    //new ExtractTextPlugin('[name].[contenthash].css'),
+    //Hash the files using MD5 so that their changes when the content changes
+    new WebpackMd5Hash(),
     //create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -65,6 +71,7 @@ export default {
       {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
+        //loader: ExtractTextPlugin.extract('css.?sourceMap')
       }
     ]
   }
