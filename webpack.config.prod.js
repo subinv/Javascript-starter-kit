@@ -3,7 +3,7 @@ import path from 'path';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
-//import ExtractTextPlugin from 'extract-text-webpack-plugin';
+//import ExtractTextPlugin from 'extract-text-webpack-plugin';//TODO css cache busting
 
 export default {
   devtool: 'source-map',
@@ -58,6 +58,9 @@ export default {
         minifyURLs: true
       },
       inject: true //inject necessary script tag
+      //Poperties you define here are available in index.html ??TODO
+      //using htmlWebpackPlugin.options.varName
+      //trackJSToken : ''
     })
     //Eliminate duplicate packages
     //new webpack.optimize.DedupePlugin()
