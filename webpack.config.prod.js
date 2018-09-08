@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 
-module.exports =  {
+export default {
   devtool: 'source-map',
   entry: [
     path.resolve(__dirname, 'src/index')
@@ -12,20 +12,30 @@ module.exports =  {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-        debug: true,
-        noInfo: false,
-      }),
-      //Eliminate duplicate packages while bundling
-      new webpack.optimize.DedupePlugin(),
+  optimization: {
+    minimizer: [
       //minify JS
       new webpack.optimize.UglifyJsPlugin()
+    ]
+  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      debug: true,
+      noInfo: false,
+    }),
+    //Eliminate duplicate packages
+    new webpack.optimize.DedupePlugin()
   ],
   module: {
-    rules: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.css$/, loaders: ['style-loader','css-loader']}
+    rules: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
+      }
     ]
   }
 }

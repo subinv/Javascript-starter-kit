@@ -5,7 +5,6 @@ var path = require('path');
 
 var port = 3000;
 var app = express();
-var compiler = webpack(config);
 import compression from 'compression';
 /*eslint-disable no-console*/
 
