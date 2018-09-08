@@ -7,6 +7,7 @@ export default {
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
+  mode: 'production',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),

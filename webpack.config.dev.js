@@ -1,11 +1,12 @@
 import webpack from 'webpack';
 import path from 'path';
 
-export default {
+module.exports = {
   devtool: 'inline-source-map',
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
+  mode:'development',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'src'),
