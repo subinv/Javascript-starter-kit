@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 export default {
   devtool: 'source-map',
@@ -15,16 +16,16 @@ export default {
   optimization: {
     minimizer: [
       //minify JS
-      new webpack.optimize.UglifyJsPlugin()
+      new UglifyJsPlugin()
     ]
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: true,
       noInfo: false,
-    }),
+    })
     //Eliminate duplicate packages
-    new webpack.optimize.DedupePlugin()
+    //new webpack.optimize.DedupePlugin()
   ],
   module: {
     rules: [{
