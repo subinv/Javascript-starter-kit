@@ -5,23 +5,33 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   devtool: 'source-map',
-  entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
+  entry: {
+    vendor : path.resolve(__dirname, 'src/vendor'),
+    main:path.resolve(__dirname, 'src/index')
+},
   mode: 'production',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   optimization: {
     minimizer: [
       //minify JS
       new UglifyJsPlugin()
-    ]
+    ],
+    splitChunks: {
+      // include all types of chunks
+      name: 'vendor'
+    }
   },
   plugins: [
+    //Use CommonsChunkPlugin to create a separate bundle of vendor
+    //libraries so that they're cached separately
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name:'vendor'
+    // }),
     new webpack.LoaderOptionsPlugin({
       debug: true,
       noInfo: false,
